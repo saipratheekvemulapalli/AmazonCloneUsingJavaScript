@@ -538,7 +538,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   <div class="addbtn">
 
                  
-                <button class="addtocart button-primary js-add-to-cart" data-product-name="${product.name}">Add to Cart</button>
+                <button class="addtocart button-primary js-add-to-cart" data-product-id="${product.id}">Add to Cart</button>
             </div>
             </div>`;
   });
@@ -549,12 +549,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.js-add-to-cart').forEach((itemq)=>{
     itemq.addEventListener('click', ()=>{
-             const productname = itemq.dataset.productName;
+             const productid = itemq.dataset.productId;
              //console.log(productname)
               let matchingitem;
               let flag=0;
               cart.forEach((item)=>{
-                  if(productname===item.productName){
+                  if(productid===item.productId){
                     matchingitem=item;
                     matchingitem.quantity=+1;
                     flag=1;
@@ -565,7 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
               }
               else{
                 cart.push({
-                  productname:productname,
+                  productid:productid,
                    quantity:1
                  })
               }
