@@ -1,9 +1,12 @@
-// checkout.js
+
 
 import { cart, removefromcart } from './addTocart.js';
 import { products } from './product.js';
 
 function renderCartSummary() {
+
+  
+  console.log(dayjs())
   let cartsummaryHTML = '';
   cart.forEach((cartItem) => {
     const productId = cartItem.productId;
