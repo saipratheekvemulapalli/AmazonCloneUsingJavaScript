@@ -1,3 +1,5 @@
+import {cart} from './addTocart.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   const products = [
     {
@@ -545,7 +547,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelector('.js-grid-container').innerHTML = productshtml;
   
-  const cart = [];
+  //const cart = [];
 
   document.querySelectorAll('.js-add-to-cart').forEach((itemq)=>{
     itemq.addEventListener('click', ()=>{
@@ -569,7 +571,13 @@ document.addEventListener('DOMContentLoaded', () => {
                    quantity:1
                  })
               }
-             
+                 let cartquantity=0;
+                cart.forEach((item)=>{
+                  cartquantity = cartquantity+item.quantity;
+                })
+
+                document.querySelector('.js-cart-quantity').innerHTML = cartquantity;
+                console.log(cartquantity)
              console.log(cart)
     });
   })
