@@ -100,6 +100,7 @@ function renderCartSummary() {
       const container = document.querySelector(`.js-cart-item-container-${productId}`);
       renderCartSummary(); 
       container.remove();
+      // console.log(container);
 
     });
   });
