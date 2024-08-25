@@ -6,7 +6,9 @@ import { products } from './product.js';
 function renderCartSummary() {
 
   
-  console.log(dayjs())
+  const today = dayjs();
+  const deliverydate =today.add(7,'days');
+  console.log(deliverydate.format('dddd, MMMM  D'))
   let cartsummaryHTML = '';
   cart.forEach((cartItem) => {
     const productId = cartItem.productId;
