@@ -6,6 +6,9 @@ import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 document.addEventListener('DOMContentLoaded', () => {
 
   function renderCartSummary() {
+
+    
+
     let cartsummaryHTML = '';
     
     cart.forEach((cartItem) => {
@@ -20,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cartsummaryHTML += `
           <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
             <div class="delivery-date js-delivery-date-${matchingProduct.id}">
-              Delivery date: ${deliverydate.format('dddd, MMMM D')}
+              Delivery Date: ${deliverydate.format('dddd, MMMM D')}
             </div>
   
             <div class="cart-item-details-grid">
@@ -107,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
       element.addEventListener('click', () => {
         const { productId, deliveryOptionId } = element.dataset;
         updateDeliveryOption(productId, deliveryOptionId);
+        renderCartSummary();
       });
     });
   }
