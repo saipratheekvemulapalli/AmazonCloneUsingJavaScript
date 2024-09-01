@@ -1,16 +1,17 @@
 import { cart, removefromcart, updateDeliveryOption } from './addTocart.js';
-import { products } from './product.js';
+import { products, getProduct } from './product.js';
 import { deliveryOptions } from './deliveryOptions.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 
 export function renderCartSummary() {
-  console.log('Rendering cart summary');
+  // console.log('Rendering cart summary');
   
   let cartsummaryHTML = '';
   
   cart.forEach((cartItem) => {
     const productId = cartItem.productId;
-    const matchingProduct = products.find(product => product.id === productId);
+    const matchingProduct = getProduct(productId);
+    // products.find(product => product.id === productId);
 
     if (matchingProduct) {
       const deliveryOptionId = cartItem.deliveryOptionId;
@@ -95,7 +96,7 @@ export function renderCartSummary() {
 
   document.querySelectorAll('.js-delivery-option').forEach((element) => {
     element.addEventListener('click', () => {
-      console.log('Delivery option div clicked');
+      // console.log('Delivery option div clicked');
       const { productId, deliveryOptionId } = element.dataset;
       updateDeliveryOption(productId, deliveryOptionId);
       renderCartSummary();
