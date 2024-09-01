@@ -1,3 +1,11 @@
+import { renderCartSummary } from './ordersummary.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM fully loaded and parsed');
+  renderCartSummary();
+});
+
+
 export let cart = JSON.parse(localStorage.getItem('cart'));
 
 if (!cart) {
