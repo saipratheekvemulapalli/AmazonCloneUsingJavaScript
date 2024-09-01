@@ -37,3 +37,15 @@ export function removefromcart(productId) {
     cart = newcart;
     savetostorage();
 }
+
+
+export function updateDeliveryOption(productId, deliveryOptionId) {
+    const cartItem = cart.find(item => item.productId === productId);
+    if (cartItem) {
+      cartItem.deliveryOptionId = deliveryOptionId;
+      savetostorage(); // Save to local storage
+    } else {
+      console.error(`No cart item found for product ID ${productId}`);
+    }
+  }
+  
