@@ -47,7 +47,7 @@ function renderCartSummary() {
               <div class="delivery-options-title">
                 Choose a delivery option:
               </div>
-              ${deliveryOptionsHTML(productId)}
+              ${deliveryOptionsHTML(productId,cartItem)}
             </div>
 
           </div>
@@ -55,16 +55,18 @@ function renderCartSummary() {
     }
   });
 
-  function deliveryOptionsHTML(productId) {
+  function deliveryOptionsHTML(productId,cartItem) {
     let html = '';
     deliveryOptions.forEach((deliveryOption) => {
       const deliveryDate = dayjs().add(deliveryOption.deliveryDays, 'days'); // Use dayjs directly
       const dateString = deliveryDate.format('dddd, MMMM D');
       const priceString = deliveryOption.price === 0 ? 'FREE' : `Rs ${deliveryOption.price}`;
 
+      const ischecked =deliveryOption.id === cartItem.deliveryOptionId;
+
       html += `
         <div class="delivery-option">
-          <input type="radio" class="delivery-option-input" name="delivery-option-${productId}">
+          <input type="radio" ${ischecked?'checked':''} class="delivery-option-input" name="delivery-option-${productId}">
           <div>
             <div class="delivery-option-date">
               ${dateString} 
