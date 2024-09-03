@@ -2,6 +2,7 @@ import { cart, removefromcart, updateDeliveryOption } from './addTocart.js';
 import { products, getProduct } from './product.js';
 import { deliveryOptions, getDeliveryOption} from './deliveryOptions.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+import {renderpaymentSummary} from './paymentsummary.js'
 
 export function renderCartSummary() {
   
@@ -64,6 +65,7 @@ export function renderCartSummary() {
           </div>
         </div>`;
     });
+    renderpaymentSummary();
     return html;
   }
 
@@ -74,12 +76,13 @@ export function renderCartSummary() {
     console.error('Order summary element not found');
   }
 
-  // Re-attach event listeners
+
   document.querySelectorAll('.js-delete-link').forEach((link) => {
     link.addEventListener('click', () => {
       console.log('Delete link clicked');
       const productId = link.dataset.productId;
       removefromcart(productId);
+      renderpaymentSummary();
       renderCartSummary(); 
     });
   });
