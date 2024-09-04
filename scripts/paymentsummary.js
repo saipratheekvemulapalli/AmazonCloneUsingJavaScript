@@ -8,8 +8,6 @@ export function renderpaymentSummary() {
 
   cart.forEach((cartItem) => {
     const product = getProduct(cartItem.productId);
-    //   console.log('Cart Item:', cartItem);
-    //   console.log('Product:', product);
     if (product) {
       console.log('Price per product:', product.price);
       console.log('Quantity:', cartItem.quantity);

@@ -12,7 +12,7 @@ export const products = [
         stars: 4.5,
         count: 87
       },
-      price: 1090,
+      price: 600,
       keywords: [
         "socks",
         "sports",
@@ -27,7 +27,7 @@ export const products = [
         stars: 4,
         count: 127
       },
-      price: 2095,
+      price: 2000,
       keywords: [
         "sports",
         "basketballs"
@@ -71,7 +71,7 @@ export const products = [
         stars: 5,
         count: 2197
       },
-      price: 1899,
+      price: 1299,
       keywords: [
         "toaster",
         "kitchen",
@@ -86,7 +86,7 @@ export const products = [
         stars: 4,
         count: 37
       },
-      price: 2067,
+      price: 899,
       keywords: [
         "plates",
         "kitchen",
@@ -101,7 +101,7 @@ export const products = [
         stars: 4.5,
         count: 175
       },
-      price: 3499,
+      price: 1999,
       keywords: [
         "kitchen",
         "cookware"
