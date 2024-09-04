@@ -495,118 +495,79 @@ document.addEventListener('DOMContentLoaded', () => {
   //   },
   // ];
 
-  // Function to generate the HTML for the products
-function generateProductsHtml(products) {
   let productshtml = '';
-products.forEach((product) => {
-  productshtml += `
-    <div class="container">
-      <div class="image-container">
-        <img class="product-image" src="${product.image}" alt="product image">
-      </div>
-      <div class="productname-container">${product.name}</div>
-      <div class="rating-container">
-        <img class="rating-image" src="images/ratings/rating-${product.rating.stars * 10}.png"> 
-        <span class="members-rated">${product.rating.count}</span>
-      </div>
-      <div class="price-container">Rs ${product.price}</div>
-      <div class="product-quantity">
-        <select>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
-      </div>
-      <div class="space-container"></div>
-      <div class="added-to-cart js-added-to-cart">
-        <img src="images/icons/checkmark.png">
-        Added
-      </div>
-      <div class="addbtn">
-        <button class="addtocart button-primary js-add-to-cart" data-product-id="${product.id}">Add to Cart</button>
-      </div>
-    </div>`;
-});
+  products.forEach((product) => {
+    productshtml =
+      productshtml +
+      `
+                <div class="container">
+                <div class="image-container">
+                    <img class="product-image" src="${
+                      product.image
+                    }" alt="product image">
+                </div>
+                <div class="productname-container">
+                    ${product.name}
+                </div>
+                <div class="rating-container">
+                    <img class="rating-image" src="images/ratings/rating-${
+                      product.rating.stars * 10
+                    }.png"> 
+                
+                <span class="members-rated">${product.rating.count}</span>
+            </div>
+                <div class="price-container">Rs ${product.price}</div>
+                <div class="product-quantity">
+                    <select>
 
-document.querySelector('.js-grid-container').innerHTML = productshtml;
+                
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                </div>
+                <div class="space-container"></div>
+                <div class="added-to-cart js-added-to-cart">
+                    <img src="images/icons/checkmark.png">
+                    Added
+                  </div>
+                  <div class="addbtn">
 
-function updatecart() {
-  let cartquantity = 0;
-  cart.forEach((cartItem) => {
-    cartquantity += cartItem.quantity;
+                 
+                <button class="addtocart button-primary js-add-to-cart" data-product-id="${product.id}">Add to Cart</button>
+            </div>
+            </div>`;
   });
 
-  document.querySelector('.js-cart-quantity').innerHTML = cartquantity;
-  console.log(cartquantity);
-  console.log(cart);
-}
+  document.querySelector('.js-grid-container').innerHTML = productshtml;
+  
+ 
 
-document.querySelectorAll('.js-add-to-cart').forEach((button) => {
-  button.addEventListener('click', function() {
-    const productid = button.dataset.productId;
-    
-    addtocart(productid);
-    updatecart();
+  function updatecart(){
+    let cartquantity=0;
+                cart.forEach((cartItem)=>{
+                  cartquantity = cartquantity+cartItem.quantity;
+                })
 
-    const addedToCartElement = this.closest('.addbtn').previousElementSibling;
-    
-    addedToCartElement.classList.add('added-to-cart-added');
-    
-    setTimeout(() => {
-      addedToCartElement.classList.remove('added-to-cart-added');
-    }, 1500);
-  });
-});
-
-
-
-
-
-}
-
-function generateQuantityOptions() {
-  let optionsHtml = '';
-  for (let i = 1; i <= 10; i++) {
-    optionsHtml += `<option value="${i}">${i}</option>`;
+                document.querySelector('.js-cart-quantity').innerHTML = cartquantity;
+                console.log(cartquantity)
+             console.log(cart)
   }
-  return optionsHtml;
-}
-
-function updateCartQuantity() {
-  let cartquantity = 0;
-  cart.forEach((cartItem) => {
-    cartquantity += cartItem.quantity;
-  });
-
-  document.querySelector('.js-cart-quantity').innerHTML = cartquantity;
-  console.log(cartquantity);
-  console.log(cart);
-}
-
-// Function to handle adding to the cart
-function handleAddToCartClick(event) {
-  const productid = event.target.dataset.productId;
-  addtocart(productid);
-  updateCartQuantity();
-}
-
-// Event delegation for add-to-cart buttons
-document.querySelector('.js-grid-container').addEventListener('click', (event) => {
-  if (event.target.classList.contains('js-add-to-cart')) {
-    handleAddToCartClick(event);
-  }
-});
-
-// Generate and render the products on page load
-generateProductsHtml(products);
-
+  document.querySelectorAll('.js-add-to-cart').forEach((itemq)=>{
+    itemq.addEventListener('click', ()=>{
+             const productid = itemq.dataset.productId;
+              addtocart(productid)
+              updatecart()
+                 
+    });
+  })
 
 
 });
