@@ -4,7 +4,9 @@
 
 The Amazon Clone App is a frontend-only web application that replicates the core features of the Amazon shopping platform. This project demonstrates how to build a functional e-commerce site using modern JavaScript technologies.
 
-[click here to visit] (https://saipratheekvemulapalli.github.io/AmazonCloneUsingJavaScript/)
+
+[Click here to visit](https://saipratheekvemulapalli.github.io/AmazonCloneUsingJavaScript/)
+
 
 ## Features
 
