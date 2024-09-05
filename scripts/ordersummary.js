@@ -16,7 +16,6 @@ export function renderCartSummary() {
     if (matchingProduct) {
       const deliveryOptionId = cartItem.deliveryOptionId;
       const deliveryOption = getDeliveryOption(deliveryOptionId);
-      // deliveryOptions.find(option => option.id === deliveryOptionId);
       const deliverydate = dayjs().add(deliveryOption.deliveryDays, 'days');
 
       cartsummaryHTML += `

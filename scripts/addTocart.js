@@ -53,7 +53,7 @@ export function updateDeliveryOption(productId, deliveryOptionId) {
     const cartItem = cart.find(item => item.productId === productId);
     if (cartItem) {
       cartItem.deliveryOptionId = deliveryOptionId;
-      savetostorage(); // Save to local storage
+      savetostorage(); 
     } else {
       console.error(`No cart item found for product ID ${productId}`);
     }
